@@ -51,6 +51,9 @@ Rectangle {
     // Framework selection state
     property string currentFramework: "PyTorch"
 
+    //Headset slection state
+    property string currentHeadset: "OpenBCI"
+
     // TOP-LEVEL LAYOUT
     ColumnLayout {
         anchors.fill: parent
@@ -996,7 +999,6 @@ Rectangle {
 
                     
                     // Buttons to choose the source headset------------
-                   
                     Rectangle {
                         Layout.fillWidth: true
                         Layout.fillHeight: false
@@ -1026,7 +1028,7 @@ Rectangle {
                                 Layout.fillHeight: true
                             }
 
-                            // Buttons row
+                            // Select headset buttons
                             RowLayout {
                                 Layout.fillWidth: true
                                 Layout.alignment: Qt.AlignHCenter
@@ -1044,13 +1046,13 @@ Rectangle {
                                                             Math.min(root.height * 0.07, 80))
                                     radius: 8
                                     color: "#2d7a4a"
-                                    border.color: currentFramework === "OpenBCI" ? "yellow" : "#2d7a4a"
-                                    border.width: currentFramework === "OpenBCI" ? 3 : 1
+                                    border.color: currentHeadset === "OpenBCI" ? "yellow" : "#2d7a4a"
+                                    border.width: currentHeadset === "OpenBCI" ? 3 : 1
 
                                     Text {
                                         anchors.centerIn: parent
                                         text: "OpenBCI"
-                                        color: currentFramework === "OpenBCI" ? "yellow" : "white"
+                                        color: currentHeadset === "OpenBCI" ? "yellow" : "white"
                                         font.bold: true
                                         font.pixelSize: Math.max(10,
                                                                 Math.min(18, parent.height * 0.35))
@@ -1062,8 +1064,9 @@ Rectangle {
                                     MouseArea {
                                         anchors.fill: parent
                                         onClicked: {
-                                            currentFramework = "OpenBCI"
+                                            currentHeadset = "OpenBCI"
                                             backend.setBCISource("openbci")
+                                            logToConsole("Changed headset to OpenBCI")
                                            
                                         }
                                     }
@@ -1081,13 +1084,13 @@ Rectangle {
                                                             Math.min(root.height * 0.07, 80))
                                     radius: 8
                                     color: "#2d7a4a"
-                                    border.color: currentFramework === "Neurosity" ? "yellow" : "#2d7a4a"
-                                    border.width: currentFramework === "Neurosity" ? 3 : 1
+                                    border.color: currentHeadset === "Neurosity" ? "yellow" : "#2d7a4a"
+                                    border.width: currentHeadset === "Neurosity" ? 3 : 1
 
                                     Text {
                                         anchors.centerIn: parent
                                         text: "Neurosity"
-                                        color: currentFramework === "Neurosity" ? "yellow" : "white"
+                                        color: currentHeadset === "Neurosity" ? "yellow" : "white"
                                         font.bold: true
                                         font.pixelSize: Math.max(10,
                                                                 Math.min(18, parent.height * 0.35))
@@ -1099,8 +1102,9 @@ Rectangle {
                                     MouseArea {
                                         anchors.fill: parent
                                         onClicked: {
-                                            currentFramework = "Neurosity"
+                                            currentHeadset = "Neurosity"
                                             backend.setBCISource("Neurosity")
+                                            logToConsole("Changed headset to Neurosity")
                                            
                                         }
                                     }

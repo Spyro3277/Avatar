@@ -757,53 +757,7 @@ Rectangle {
         }
          
     }
-    Row {
-       
-        width: parent.width * 0.25
-        height: parent.height * 0.06
-        spacing: width * 0.02
-        anchors.left: parent.left
-        anchors.bottom: parent.bottom
-        anchors.leftMargin: parent.width * 0.14
-        anchors.bottomMargin: parent.height * 0.01
-
-        RadioButton {
-            id: neurosityRadio
-            text: "Neurosity"
-            font.pixelSize: parent.width * 0.04
-            font.bold: true
-            checked: true   // default
-
-            contentItem: Text {
-                text: neurosityRadio.text
-                color: "white"
-                font.pixelSize: neurosityRadio.font.pixelSize
-                font.bold: neurosityRadio.font.bold
-                verticalAlignment: Text.AlignVCenter
-                leftPadding: neurosityRadio.indicator.width + neurosityRadio.spacing
-            }
-
-            onClicked: backend.setBCISource("neurosity")
-        }
-
-        RadioButton {
-            id: openbciRadio
-            text: "OpenBCI"
-            font.pixelSize: parent.width * 0.04
-            font.bold: true
-
-            contentItem: Text {
-                text: openbciRadio.text
-                color: "white"
-                font.pixelSize: openbciRadio.font.pixelSize
-                font.bold: openbciRadio.font.bold
-                verticalAlignment: Text.AlignVCenter
-                leftPadding: openbciRadio.indicator.width + openbciRadio.spacing
-            }
-
-            onClicked: backend.setBCISource("openbci")
-        }
-    }
+    
 
    
 }
