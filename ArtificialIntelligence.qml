@@ -1103,7 +1103,7 @@ Rectangle {
                                         anchors.fill: parent
                                         onClicked: {
                                             currentHeadset = "Neurosity"
-                                            backend.setBCISource("Neurosity")
+                                            backend.setBCISource("neurosity")
                                             logToConsole("Changed headset to Neurosity")
                                            
                                         }
